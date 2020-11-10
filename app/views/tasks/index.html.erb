@@ -1,0 +1,16 @@
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <% if task.completed %>
+        [X]
+      <% else %>
+        [ ]
+      <% end %>
+      <%= link_to task.title, task_path(task.id) %> -
+      <%= link_to "Delete Task", task_path(task), method: :delete, data: { confirm: "DELETE ?" } %>
+    </li>
+  <% end %>
+</ul>
+
+ <%= link_to "Create Task", new_path %>
+
